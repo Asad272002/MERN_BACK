@@ -5,11 +5,11 @@ const jwt = require ("jsonwebtoken")
 
 
 async function registerUser(req,res){
-    const {usernmae, email,password}= req.body;
+    const {username, email,password}= req.body;
 
 
     const user = await userModel.create ({
-        usernmae, email, password
+        username, email, password
     })
 
     const token =jwt.sign ({
@@ -21,9 +21,8 @@ async function registerUser(req,res){
 
     res.status (201).json({
         message : "User Registered Successfully",
-        user,
-        token
-    })
+        user
+})
 
 
 }
